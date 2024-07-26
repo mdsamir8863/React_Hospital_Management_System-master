@@ -5,8 +5,16 @@ import { generateToken } from "../utils/jwtToken.js";
 import cloudinary from "cloudinary";
 
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
-  const { firstName, lastName, email, phone, nic, dob, gender, password } =
-    req.body;
+  const {
+    firstName,
+    lastName,
+    email,
+    phone,
+    nic,
+    dob,
+    gender,
+    password,
+  } = req.body;
   if (
     !firstName ||
     !lastName ||
@@ -14,7 +22,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     !phone ||
     !nic ||
     !dob ||
-    !gender || 
+    !gender ||
     !password
   ) {
     return next(new ErrorHandler("Please Fill Full Form!", 400));
@@ -65,8 +73,16 @@ export const login = catchAsyncErrors(async (req, res, next) => {
 });
 
 export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
-  const { firstName, lastName, email, phone, nic, dob, gender, password } =
-    req.body;
+  const {
+    firstName,
+    lastName,
+    email,
+    phone,
+    nic,
+    dob,
+    gender,
+    password,
+  } = req.body;
   if (
     !firstName ||
     !lastName ||

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaLocationArrow, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
@@ -43,9 +42,9 @@ const Footer = () => {
       <footer className={"container"}>
         <hr />
         <div className="content">
-          <div>
-            <img src="/logo.png" alt="logo" className="logo-img"/>
-          </div>
+          <Link to="/" className="logo-img">
+            Health<span style={{ color: "#ffce00" }}>Hub</span>
+          </Link>
           <div>
             <h4>Quick Links</h4>
             <ul>
@@ -73,11 +72,11 @@ const Footer = () => {
             </div>
             <div>
               <MdEmail />
-              <span>zeelab@gmail.com</span>
+              <span>saeeda@gmail.com</span>
             </div>
             <div>
               <FaLocationArrow />
-              <span>Karachi, Pakistan</span>
+              <span>Bengaluru, India</span>
             </div>
           </div>
         </div>

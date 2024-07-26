@@ -33,9 +33,11 @@ nav {
   font-weight: 500;
   letter-spacing: 1px;
 }
-.links a.active{
+
+.links a.active {
   color: blue !important;
 }
+
 .links a:hover {
   color: #cccccc;
 }
@@ -138,4 +140,37 @@ nav {
   /* Change the logout button color as needed */
   color: #fff;
   /* Set the text color to white */
+}
+
+.menuIcon {
+  display: none;
+}
+
+.mbNav {
+  display: none;
+}
+
+@media (max-width:768px) {
+  .mbNav {
+    display: flex;
+  }
+  .deskNav {
+    display: none;
+  }
+
+  .menuIcon {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
+
+  .icon {
+    font-size: 3rem;
+    width: 3rem;
+  }
+
+  .links a {
+    color: black !important;
+  }
 }

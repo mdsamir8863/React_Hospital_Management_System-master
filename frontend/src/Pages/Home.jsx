@@ -9,11 +9,11 @@ const Home = () => {
     <>
       <Hero
         title={
-          "Welcome to ZeeCare Medical Institute | Your Trusted Healthcare Provider"
+          "Welcome to HealthHub Medical Institute | Your Trusted Healthcare Provider"
         }
-        imageUrl={"/hero.png"}
+        
       />
-      <Biography imageUrl={"/about.png"} />
+      <Biography imageUrl={"https://img.freepik.com/free-vector/online-doctor-concept_23-2148512070.jpg?t=st=1721992139~exp=1721995739~hmac=faca7a361304c2b9ce003c408829ca5786fbf6d3e0fdccb6c330ea0b7526299f&w=740"} />
       <Departments />
       <MessageForm />
     </>

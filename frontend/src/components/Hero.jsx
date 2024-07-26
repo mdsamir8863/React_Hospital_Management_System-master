@@ -1,22 +1,16 @@
-import React from "react";
 
-const Hero = ({ title, imageUrl }) => {
+const Hero = ({ title }) => {
   return (
     <>
       <div className="hero container">
         <div className="banner">
           <h1>{title}</h1>
           <p>
-            ZeeCare Medical Institute is a state-of-the-art facility dedicated
-            to providing comprehensive healthcare services with compassion and
-            expertise. Our team of skilled professionals is committed to
-            delivering personalized care tailored to each patient's needs. At
-            ZeeCare, we prioritize your well-being, ensuring a harmonious
-            journey towards optimal health and wellness.
+            Welcome to HealthHub Medical Institute, where your health and well-being are our top priorities. Our state-of-the-art facility is staffed by a team of dedicated professionals who are committed to providing you with the highest quality care. We understand that each patient is unique, which is why we tailor our services to meet your individual needs. Whether you're in need of routine care or facing a more complex medical issue, we're here to guide you on your journey to optimal health and wellness.
           </p>
         </div>
         <div className="banner">
-          <img src={imageUrl} alt="hero" className="animated-image" />
+          <img src="https://img.freepik.com/premium-photo/gangster-illustration-bad-boy-with-gun_435599-16058.jpg?w=740" alt="hero" className="animated-image" />
           <span>
             <img src="/Vector.png" alt="vector" />
           </span>
