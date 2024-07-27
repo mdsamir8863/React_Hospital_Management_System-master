@@ -42,12 +42,12 @@ const Navbar = () => {
                 </Link>
                 <Link
                   onClick={handleMenuBar}
-                  to="/appointment"
+                  to="/services"
                   className={`link ${
-                    activeTab === "/appointment" ? "active" : ""
+                    activeTab === "/services" ? "active" : ""
                   }`}
                 >
-                  Appointment
+                  Services
                 </Link>
                 <Link
                   onClick={handleMenuBar}
@@ -55,6 +55,13 @@ const Navbar = () => {
                   className={`link ${activeTab === "/about" ? "active" : ""}`}
                 >
                   About
+                </Link>
+                <Link
+                  onClick={handleMenuBar}
+                  to="/contact"
+                  className={`link ${activeTab === "/contact" ? "active" : ""}`}
+                >
+                  Contact
                 </Link>
               </div>
               <div className="buttons">
@@ -111,12 +118,12 @@ const Navbar = () => {
                 </Link>
                 <Link
                   onClick={handleMenuBar}
-                  to="/appointment"
+                  to="/services"
                   className={`link ${
-                    activeTab === "/appointment" ? "active" : ""
+                    activeTab === "/services" ? "active" : ""
                   }`}
                 >
-                  Appointment
+                  Services
                 </Link>
                 <Link
                   onClick={handleMenuBar}
@@ -124,6 +131,13 @@ const Navbar = () => {
                   className={`link ${activeTab === "/about" ? "active" : ""}`}
                 >
                   About
+                </Link>
+                <Link
+                  onClick={handleMenuBar}
+                  to="/contact"
+                  className={`link ${activeTab === "/contact" ? "active" : ""}`}
+                >
+                  Contact
                 </Link>
               </div>
               <div className="buttons">
@@ -133,10 +147,16 @@ const Navbar = () => {
                   </button>
                 ) : (
                   <>
-                    <Link to="/login" className="loginBtn btn">
+                    <Link 
+                  onClick={handleMenuBar}
+                    
+                     to="/login" className="loginBtn btn">
                       Login
                     </Link>
-                    <Link to="/register" className="registerBtn btn">
+                    <Link 
+                  onClick={handleMenuBar}
+                    
+                     to="/register" className="registerBtn btn">
                       Register
                     </Link>
                   </>
