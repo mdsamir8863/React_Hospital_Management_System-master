@@ -7,7 +7,7 @@ import { GoCheckCircleFill } from "react-icons/go";
 import { AiFillCloseCircle } from "react-icons/ai";
 // import "../styles/dashboard.css";
 
-const Dashboard = () => {
+const Dashboard = ({ user: admin }) => {
   const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
@@ -46,7 +46,8 @@ const Dashboard = () => {
     }
   };
 
-  const { isAuthenticated, admin } = useContext(Context);
+  const { isAuthenticated } = useContext(Context);
+
   if (!isAuthenticated) {
     return <Navigate to={"/login"} />;
   }
@@ -60,10 +61,7 @@ const Dashboard = () => {
             <div className="content">
               <div>
                 <p>Hello ,</p>
-                <h5>
-                  {admin &&
-                    `${admin.firstName} ${admin.lastName}`}{" "}
-                </h5>
+                <h5>{admin && `${admin.firstName} ${admin.lastName}`} </h5>
               </div>
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -107,10 +105,7 @@ const Dashboard = () => {
                           <>
                             <button
                               onClick={() =>
-                                handleUpdateStatus(
-                                  appointment._id,
-                                  "approved"
-                                )
+                                handleUpdateStatus(appointment._id, "approved")
                               }
                             >
                               <GoCheckCircleFill />
@@ -140,14 +135,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
-
-
-
-
-
-
 
 // import React, { useContext, useEffect, useState } from "react";
 // import { Context } from "../main";

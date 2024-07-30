@@ -32,7 +32,7 @@ app.use(
 
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
-app.use("/api/appointment", appointmentRouter); // Added missing comma
+app.use("/api/v1/appointment", appointmentRouter); // Added missing comma
 dbConnection();
 
 app.use(errorMiddleware);

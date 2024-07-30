@@ -14,7 +14,16 @@ const Navbar = () => {
     setActiveTab(location.pathname);
   }, [location]);
 
-  const handleLogout = () => {
+  function clearCookies() {
+    document.cookie.split(";").forEach(function (c) {
+      document.cookie = c
+        .replace(/^ +/, "")
+        .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+    });
+  }
+
+  const handleLogout = async () => {
+    clearCookies();
     setIsAuthenticated(false);
   };
   const handleMenuBar = () => {
@@ -29,59 +38,55 @@ const Navbar = () => {
             Health<span style={{ color: "#ffce00" }}>Hub</span>
           </Link>
         </div>
-       
-       
-            <div className="navLinks">
-              <div className="links">
-                <Link
-                  onClick={handleMenuBar}
-                  to="/"
-                  className={`link ${activeTab === "/" ? "active" : ""}`}
-                >
-                  Home
+
+        <div className="navLinks">
+          <div className="links">
+            <Link
+              onClick={handleMenuBar}
+              to="/"
+              className={`link ${activeTab === "/" ? "active" : ""}`}
+            >
+              Home
+            </Link>
+            <Link
+              onClick={handleMenuBar}
+              to="/services"
+              className={`link ${activeTab === "/services" ? "active" : ""}`}
+            >
+              Services
+            </Link>
+            <Link
+              onClick={handleMenuBar}
+              to="/about"
+              className={`link ${activeTab === "/about" ? "active" : ""}`}
+            >
+              About
+            </Link>
+            <Link
+              onClick={handleMenuBar}
+              to="/contact"
+              className={`link ${activeTab === "/contact" ? "active" : ""}`}
+            >
+              Contact
+            </Link>
+          </div>
+          <div className="buttons">
+            {isAuthenticated ? (
+              <button onClick={handleLogout} className="logoutBtn btn">
+                Logout
+              </button>
+            ) : (
+              <>
+                <Link to="/login" className="loginBtn btn">
+                  Login
                 </Link>
-                <Link
-                  onClick={handleMenuBar}
-                  to="/services"
-                  className={`link ${
-                    activeTab === "/services" ? "active" : ""
-                  }`}
-                >
-                  Services
+                <Link to="/register" className="registerBtn btn">
+                  Register
                 </Link>
-                <Link
-                  onClick={handleMenuBar}
-                  to="/about"
-                  className={`link ${activeTab === "/about" ? "active" : ""}`}
-                >
-                  About
-                </Link>
-                <Link
-                  onClick={handleMenuBar}
-                  to="/contact"
-                  className={`link ${activeTab === "/contact" ? "active" : ""}`}
-                >
-                  Contact
-                </Link>
-              </div>
-              <div className="buttons">
-                {isAuthenticated ? (
-                  <button onClick={handleLogout} className="logoutBtn btn">
-                    Logout
-                  </button>
-                ) : (
-                  <>
-                    <Link to="/login" className="loginBtn btn">
-                      Login
-                    </Link>
-                    <Link to="/register" className="registerBtn btn">
-                      Register
-                    </Link>
-                  </>
-                )}
-              </div>
-            </div>
-         
+              </>
+            )}
+          </div>
+        </div>
       </nav>
       <nav className="mbNav">
         <div className="logo">
@@ -147,16 +152,18 @@ const Navbar = () => {
                   </button>
                 ) : (
                   <>
-                    <Link 
-                  onClick={handleMenuBar}
-                    
-                     to="/login" className="loginBtn btn">
+                    <Link
+                      onClick={handleMenuBar}
+                      to="/login"
+                      className="loginBtn btn"
+                    >
                       Login
                     </Link>
-                    <Link 
-                  onClick={handleMenuBar}
-                    
-                     to="/register" className="registerBtn btn">
+                    <Link
+                      onClick={handleMenuBar}
+                      to="/register"
+                      className="registerBtn btn"
+                    >
                       Register
                     </Link>
                   </>

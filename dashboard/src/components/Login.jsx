@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { Context } from "../main";
 import axios from "axios";
 
-const Login = () => {
+const Login = ({setUser}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -31,6 +31,9 @@ const Login = () => {
           navigateTo("/");
           setEmail("");
           setPassword("");
+          setUser(res.data.user)
+          const newData = JSON.stringify(res.data.user);
+          localStorage.setItem("Admin", newData);
           setConfirmPassword("");
         });
     } catch (error) {

@@ -1,5 +1,10 @@
-import React, { useContext, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 import AddNewDoctor from "./components/AddNewDoctor";
@@ -38,12 +43,17 @@ const App = () => {
   //   fetchUser();
   // }, [isAuthenticated]);
 
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("Admin")));
+
   return (
     <Router>
-      <Sidebar />
+      {user?._id ? <Sidebar /> : null}
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={user?._id ? <Dashboard user={user} /> : <Navigate to="/login" />}
+        />
+        <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/doctor/addnew" element={<AddNewDoctor />} />
         <Route path="/admin/addnew" element={<AddNewAdmin />} />
         <Route path="/messages" element={<Messages />} />

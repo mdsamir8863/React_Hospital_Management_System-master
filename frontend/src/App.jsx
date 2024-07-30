@@ -17,23 +17,37 @@ const App = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } =
     useContext(Context);
 
+    function getAllCookies() {
+      let cookies = document.cookie.split('; ');
+      let cookieObject = {};
+      cookies.forEach(cookie => {
+          let [name, value] = cookie.split('=');
+          cookieObject[name] = decodeURIComponent(value);
+      });
+      return cookieObject;
+  }
+  
+
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:4000/api/v1/user/patient/me",
-          {
-            withCredentials: true,
-          }
-        );
-        setIsAuthenticated(true);
-        setUser(response.data.user);
-      } catch (error) {
-        setIsAuthenticated(false);
-        setUser({});
-      }
-    };
-    fetchUser();
+    console.log(getAllCookies());
+    if(document.cookie){
+      const fetchUser = async () => {
+        try {
+          const response = await axios.get(
+            "http://localhost:4000/api/v1/user/patient/me",
+            {
+              withCredentials: true,
+            }
+          );
+          setIsAuthenticated(true);
+          setUser(response.data.user);
+        } catch (error) {
+          setIsAuthenticated(false);
+          setUser({});
+        }
+      };
+      fetchUser();
+    }
   }, [isAuthenticated]);
 
   return (

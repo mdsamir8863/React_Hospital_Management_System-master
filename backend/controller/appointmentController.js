@@ -18,6 +18,7 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
     doctor_lastName,
     hasVisited,
     address,
+    user_id
   } = req.body;
   if (
     !firstName ||
@@ -54,7 +55,7 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
     );
   }
   const doctorId = isConflict[0]._id;
-  const patientId = req.user._id;
+  const patientId = req.body.user_id 
   const appointment = await Appointment.create({
     firstName,
     lastName,
