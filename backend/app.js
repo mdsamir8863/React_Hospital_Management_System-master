@@ -1,3 +1,7 @@
+import path from "path";
+import { fileURLToPath } from "url"; // Import fileURLToPath function
+const __filename = fileURLToPath(import.meta.url); // Get the current filename
+const __dirname = path.dirname(__filename); // Get the directory name
 import express from "express";
 import { config } from "dotenv";
 import cors from "cors";
@@ -7,7 +11,8 @@ import { dbConnection } from "./database/dbConnection.js";
 import messageRouter from "./router/messageRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
 import { errorMiddleware } from "./middlewares/errorMiddleware.js";
-import userRouter from './router/userRouter.js'
+import userRouter from './router/userRouter.js';
+
 const app = express();
 config({ path: "./config/config.env" });
 
@@ -32,8 +37,22 @@ app.use(
 
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
-app.use("/api/v1/appointment", appointmentRouter); // Added missing comma
+app.use("/api/v1/appointment", appointmentRouter);
 dbConnection();
 
 app.use(errorMiddleware);
+
+app.use(express.static("dist"));
+
+// Set MIME type for JavaScript files
+app.get("*.js", (req, res, next) => {
+  res.type("application/javascript");
+  next();
+});
+
+// Catch-all route
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
 export default app;
