@@ -34,35 +34,64 @@ button:hover {
 }
 
 .button-container {
-    margin-bottom: 20px; /* Adjust as needed */
-    text-align: right; /* Align button to the right */
-  }
-  
-  .add-button {
-    /* Add any additional styling for the button */
-  }
-  
-  .page-title {
-    text-align: center;
-    color: white;
-  }
-  
-  .button-container {
-    margin-bottom: 20px;
-    text-align: center; /* Align button to the center */
-  }
-  
-  .add-button {
-    color: white; /* Change button text color to white */
-    background-color: blue; /* Example background color */
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .add-button:hover {
-    background-color: navy; /* Change button background color on hover */
-  }
-  
+  margin-bottom: 20px;
+  text-align: center;
+}
 
+.add-button {
+  color: white;
+  background-color: blue;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+.patient-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.patient-card {
+  flex: 0 0 30%;
+  margin: 20px;
+  background-color: white;
+  padding: 1rem;
+}
+
+.page-title {
+  text-align: center;
+  color: white;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+thead{
+  padding: 1rem;
+}
+tbody td {
+  padding: 10px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(196, 242, 255, 0.446);
+}
+
+th {
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}

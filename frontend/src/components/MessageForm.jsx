@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import  { useState } from "react";
 import { toast } from "react-toastify";
 
 const MessageForm = () => {
@@ -37,7 +37,7 @@ const MessageForm = () => {
   return (
     <>
       <div className="container form-component message-form">
-        <h2>Send Us A Message</h2>
+        <h2>Book An Appointment</h2>
         <form onSubmit={handleMessage}>
           <div>
             <input

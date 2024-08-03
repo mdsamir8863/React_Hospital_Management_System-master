@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
@@ -13,28 +13,40 @@ const Patients = () => {
 
   const fetchPatients = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/v1/patients");
+      const response = await axios.get("http://localhost:4000/api/v1/user/allpatient");
+      console.log(response);
       setPatients(response.data.patients);
     } catch (error) {
       toast.error("Error fetching patients");
+      
     }
   };
 
   return (
     <div className="container">
       <h1 className="page-title">Patients</h1>
-      <ul>
-        {patients.map((patient) => (
-          <li key={patient.id}>
-            {patient.firstName} {patient.lastName}
-          </li>
-        ))}
-      </ul>
-      <Link to="/add-patient">
-        <div className="button-container">
-          <button className="add-button">Add Patient</button>
-        </div>
-      </Link>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>NIC</th>
+            <th>Phone</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+        <tbody>
+          {patients.map((patient) => (
+            <tr key={patient.id}>
+              <td>{patient.firstName} {patient.lastName}</td>
+              <td>{patient.email}</td>
+              <td>{patient.nic}</td>
+              <td>{patient.phone}</td>
+              <td>{patient.gender}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

@@ -106,6 +106,8 @@ h6 {
   flex: 1;
 }
 
+
+
 .hero .banner h1,
 .hero .banner p {
   max-width: 650px;
@@ -187,7 +189,7 @@ h6 {
 }
 
 .form-component {
-  padding-top: 40px;
+  margin-top: 5rem;
   padding-bottom: 60px;
 }
 
@@ -602,11 +604,25 @@ nav svg {
   width: 100%;
   background-image: url('https://hospitality-management.vercel.app/img/header-page.jpg');
   background-size: cover;
-  height: 25rem;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000000;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.overColor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.355);
+  color: #ffffff;
 
 }
 

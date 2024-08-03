@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect } from "react";
+import  { useContext, useState, useRef, useEffect } from "react";
 import { TiHome } from "react-icons/ti";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { AiFillMessage } from "react-icons/ai";
@@ -11,7 +11,7 @@ import { HiUserGroup } from "react-icons/hi"; // New icon for receptionists
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Context } from "../main";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import logo from "../assets/logo3.png";
 
 const Sidebar = () => {
@@ -46,15 +46,21 @@ const Sidebar = () => {
   }
 
   const handleLogout = async () => {
-
     clearCookies()
     toast.success(res.data.message);
     setIsAuthenticated(false);
+    
   };
+  const logout = ()=>{
+    navigateTo("/login");
+    setShow(false);
+
+  }
 
   const gotoHomePage = () => {
-    navigateTo("/");
+    navigateTo("/dashboard");
     setShow(false);
+    
   };
 
   const gotoDoctorsPage = () => {
@@ -63,7 +69,7 @@ const Sidebar = () => {
   };
 
   const gotoMessagesPage = () => {
-    navigateTo("/messages");
+    navigateTo("/appointments");
     setShow(false);
   };
 
@@ -82,16 +88,20 @@ const Sidebar = () => {
     setShow(false);
   };
 
-  const gotoReceptionistsPage = () => {
-    navigateTo("/receptionists");
-    setShow(false);
-  };
+  // const gotoReceptionistsPage = () => {
+  //   navigateTo("/receptionists");
+  //   setShow(false);
+  // };
 
   return (
     <>
       <nav ref={sidebarRef} className={show ? "show sidebar" : "sidebar"}>
         <div className="logo-container">
-          <img src={logo} alt="Logo" className="logo" />
+        <div className="logo" style={{fontWeight: "bold", fontSize:"1.5rem",  display:'flex', alignItems:"center", justifyContent:"center", width:"100%"}}>
+          <Link to="/" className="logo-img" style={{textDecoration:"none"}}>
+            Health<span style={{ color: "#ffce00" }}>Hub</span>
+          </Link>
+        </div>
         </div>
         <div className="links">
           <div onClick={gotoHomePage}>
@@ -114,21 +124,21 @@ const Sidebar = () => {
             <BsPeopleFill />
             <span>Patients</span>
           </div>
-          <div onClick={gotoReceptionistsPage}>
+          {/* <div onClick={gotoReceptionistsPage}>
             <HiUserGroup />
             <span>Receptionists</span>
-          </div>
+          </div> */}
           <div onClick={gotoMessagesPage}>
             <AiFillMessage />
-            <span>Messages</span>
+            <span>appointment</span>
           </div>
           <div onClick={handleLogout}>
             <RiLogoutBoxFill />
-            <span>Logout</span>
+            <span onClick={logout}>Logout</span>
           </div>
         </div>
       </nav>
-      <div
+      <div id="menuIcon"
         className="wrapper"
         style={!isAuthenticated ? { display: "none" } : { display: "flex" }}
       >

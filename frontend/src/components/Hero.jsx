@@ -1,4 +1,4 @@
-
+import HeroSlider from '../components/HeroSlider'
 const Hero = ({ title }) => {
   return (
     <>
@@ -10,10 +10,7 @@ const Hero = ({ title }) => {
           </p>
         </div>
         <div className="banner">
-          <img src="https://img.freepik.com/premium-photo/gangster-illustration-bad-boy-with-gun_435599-16058.jpg?w=740" alt="hero" className="animated-image" />
-          <span>
-            <img src="/Vector.png" alt="vector" />
-          </span>
+        <HeroSlider />
         </div>
       </div>
     </>

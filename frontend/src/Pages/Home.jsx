@@ -1,8 +1,10 @@
 import  { useContext } from "react";
 import Hero from "../components/Hero";
+import HeroSlider from '../components/HeroSlider'
 import Biography from "../components/Biography";
 import MessageForm from "../components/MessageForm";
 import Departments from "../components/Departments";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const Home = () => {
   return (
@@ -13,7 +15,9 @@ const Home = () => {
         }
         
       />
-      <Biography imageUrl={"https://img.freepik.com/free-vector/online-doctor-concept_23-2148512070.jpg?t=st=1721992139~exp=1721995739~hmac=faca7a361304c2b9ce003c408829ca5786fbf6d3e0fdccb6c330ea0b7526299f&w=740"} />
+    
+      <Biography url={"https://img.freepik.com/premium-photo/healthcare-showcase-doctor-displays-stethoscope-medical-icons-hospital-vertical-mobile-wa_896558-37948.jpg?w=360"} />
+      <WhyChooseUs/>
       <Departments />
       <MessageForm />
     </>

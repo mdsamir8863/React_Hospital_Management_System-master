@@ -4,6 +4,12 @@ import ErrorHandler from "../middlewares/error.js";
 import { generateToken } from "../utils/jwtToken.js";
 import cloudinary from "cloudinary";
 
+export const allPatients = catchAsyncErrors(async (req, res, next) => {
+  const patients = await User.find({ role: "Patient" });
+  res.status(200).json({
+    patients,
+  });
+});
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
   const {
     firstName,
@@ -25,7 +31,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     !gender ||
     !password
   ) {
-    return next(new ErrorHandler("Please Fill Full Form!", 400));
+    return next(new ErrorHandler("Please Fill All Fields!", 400));
   }
 
   const isRegistered = await User.findOne({ email });
@@ -50,7 +56,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
 export const login = catchAsyncErrors(async (req, res, next) => {
   const { email, password, confirmPassword, role } = req.body;
   if (!email || !password || !confirmPassword || !role) {
-    return next(new ErrorHandler("Please Fill Full Form!", 400));
+    return next(new ErrorHandler("Please Fill All Fields!", 400));
   }
   if (password !== confirmPassword) {
     return next(
@@ -93,7 +99,7 @@ export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
     !gender ||
     !password
   ) {
-    return next(new ErrorHandler("Please Fill Full Form!", 400));
+    return next(new ErrorHandler("Please Fill All Fields!", 400));
   }
 
   const isRegistered = await User.findOne({ email });
@@ -151,7 +157,7 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
     !doctorDepartment ||
     !docAvatar
   ) {
-    return next(new ErrorHandler("Please Fill Full Form!", 400));
+    return next(new ErrorHandler("Please Fill All Fields!", 400));
   }
   const isRegistered = await User.findOne({ email });
   if (isRegistered) {

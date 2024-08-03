@@ -65,7 +65,7 @@ const AddNewDoctor = () => {
         .then((res) => {
           toast.success(res.data.message);
           setIsAuthenticated(true);
-          navigateTo("/");
+          navigateTo("/doctors"); // Redirect to '/doctors' page
           setFirstName("");
           setLastName("");
           setEmail("");

@@ -154,6 +154,7 @@ nav {
   .mbNav {
     display: flex;
   }
+
   .deskNav {
     display: none;
   }
@@ -165,8 +166,14 @@ nav {
     top: 20px;
   }
 
+
   .icon {
     width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
   }
 
   .links a {

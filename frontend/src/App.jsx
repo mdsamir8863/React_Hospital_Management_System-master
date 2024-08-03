@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -13,6 +13,8 @@ import axios from "axios";
 import { Context } from "./main";
 import Login from "./Pages/Login";
 import Services from "./Pages/Services";
+import AllDoctor from "./Pages/AllDoctor";
+import MessageForm from "./components/MessageForm";
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } =
     useContext(Context);
@@ -59,6 +61,8 @@ const App = () => {
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/doctors" element={<AllDoctor />} />
+          <Route path="/message" element={<MessageForm />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>

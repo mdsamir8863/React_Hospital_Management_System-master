@@ -38,13 +38,14 @@
     text-align: right; /* Align button to the right */
   }
   
-  .add-button {
-    /* Add any additional styling for the button */
-  }
+ 
   
   .page-title {
     text-align: center;
     color: white;
+    /* background-color: rgba(239, 239, 239, 0.475); */
+    /* margin-top: 2rem; */
+    padding: 1rem;
   }
   
   .button-container {

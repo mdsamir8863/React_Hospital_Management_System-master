@@ -64,10 +64,10 @@ const Navbar = () => {
             </Link>
             <Link
               onClick={handleMenuBar}
-              to="/contact"
-              className={`link ${activeTab === "/contact" ? "active" : ""}`}
+              to="/doctors"
+              className={`link ${activeTab === "/doctors" ? "active" : ""}`}
             >
-              Contact
+              Doctors
             </Link>
           </div>
           <div className="buttons">
@@ -139,10 +139,10 @@ const Navbar = () => {
                 </Link>
                 <Link
                   onClick={handleMenuBar}
-                  to="/contact"
-                  className={`link ${activeTab === "/contact" ? "active" : ""}`}
+                  to="/doctors"
+                  className={`link ${activeTab === "/doctors" ? "active" : ""}`}
                 >
-                  Contact
+                  Doctors
                 </Link>
               </div>
               <div className="buttons">
